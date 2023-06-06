@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">
+
+    <title>Адмін-панель для бот аналітики</title>
+</head>
+
+<body>
+    <main class="adminPanelPage">
+        <h1>Адмін-панель для бот аналітики</h1>
+        <div class="adminPanelInstructionContainer">
+            <div class="adminPanelInstructionContainerLeft">
+                <h3>Інструкція</h3>
+                <ul>
+                    <li>
+                        Додати бот в чат Telegram: <span>@Weeklyanalytics_bot</span>
+                    </li>
+                    <li>
+                        Після додавання з'явиться ID група у форматі: <span>-000000000</span>
+                    </li>
+                    <li>
+                        У таблицю зі звітом додати сервісний email: <a
+                            href="weeklyanalytics@bot-telegram-by-analytics.iam.gserviceaccount.com">weeklyanalytics@bot-telegram-by-analytics.iam.gserviceaccount.com</a>
+                    </li>
+                    <li>
+                        Копіювати ID таблиці (приклад виділено кольором): <a
+                            href="https://docs.google.com/spreadsheets/d/1bLOHYOWXwdvU9BJ-1pccNDEIhRFWY7TlJMmzuMV28lA/edit">https://docs.google.com/spreadsheets/d/1bLOHYOWXwdvU9BJ-1pccNDEIhRFWY7TlJMmzuMV28lA/edit</a>
+                    </li>
+                    <li>Зберегти налаштування бота</li>
+                </ul>
+            </div>
+            <div class="adminPanelInstructionContainerRight">
+                <form action="#">
+                    <div class="formBlock">
+                        <div class="formRow formInputName">
+                            <span class="wpcf7-form-control-wrap" data-name="name-client"><input size="40"
+                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required nameField"
+                                    aria-required="true" aria-invalid="false" placeholder="Назва проекту" value="" type="text"
+                                    name="name-client"></span>
+                        </div>
+
+                        <div class="formRow formInputName">
+                            <span class="wpcf7-form-control-wrap" data-name="name-client"><input size="40"
+                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required nameField"
+                                    aria-required="true" aria-invalid="false" placeholder="Посилання на проект у PlanFix" value="" type="text"
+                                    name="name-client"></span>
+                        </div>
+
+                        <div class="formRow formInputName">
+                            <span class="wpcf7-form-control-wrap" data-name="name-client"><input size="40"
+                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required nameField"
+                                    aria-required="true" aria-invalid="false" placeholder="ID Таблиці" value="" type="text"
+                                    name="name-client"></span>
+                        </div>
+
+                        <div class="formRow formInputName">
+                            <span class="wpcf7-form-control-wrap" data-name="name-client"><input size="40"
+                                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required nameField"
+                                    aria-required="true" aria-invalid="false" placeholder="ID Чату" value="" type="text"
+                                    name="name-client"></span>
+                        </div>
+
+                        <div class="formRow formSubmit">
+                            <input class="wpcf7-form-control has-spinner wpcf7-submit" type="submit"
+                                value="Зберегти"><span class="wpcf7-spinner"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="adminPanelMain">
+            <div class="adminPanelMainTop">
+                <input type="search" id="site-search" name="" placeholder="Пошук за завданнями">
+                <select name="" id="">
+                    <option value="">Фільтр</option>
+                    <option value="">Всі задачі</option>
+                    <option value="">Лише увімкнені</option>
+                    <option value="">Лише вимкнені</option>
+                    <option value="">Лише на паузі</option>
+                </select>
+            </div>
+            <div class="adminPanelMainContainer">
+                <div class="adminPanelMainCard">
+                    <div class="adminPanelMainCardTop">
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-switch" class="toggle-switch" />
+                            <label for="toggle-switch">
+                                <div class="toggle-block"></div>
+                                <span class="toggle-text toggle-text1">ВКЛ</span>
+                                <span class="toggle-text toggle-text2">ВИМК</span>
+                            </label>
+                        </div>
+                        <div class="copy-link">
+                            <img src="img/copy.svg" alt="">
+                            <!-- <span class="link-text"></span> -->
+                        </div>
+                        <div class="copy-message"></div>
+
+
+                    </div>
+
+                    <div class="adminPanelMainContainerInput">
+                        <div class="editTittle">
+                            <button class="editTittleBtn">
+                                <img src="img/editTittle.svg" alt="">
+                            </button>
+                            <h3 class="editTittleText">Назва проекту</h3>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-1">ID ЧАТУ</label>
+                            <input type="text" class="text-input-1" id="text-input-1" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-1">ID ТАБЛИЦІ</label>
+                            <input type="text" class="text-input-1" id="text-input-1" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="save-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainCardBtnFlex">
+                        <div class="adminPanelMainCardBtnPlay">
+                            <button class="adminPanelMainCardPlay">
+                                <img src="img/play.svg" alt="">
+                            </button>
+                            <button class="adminPanelMainCardPause">
+                                <img src="img/pause.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="adminPanelMainCardBtnFlexLink">
+                            <a href="#">
+                                <img src="img/link.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <img src="img/delate.svg" alt="">
+                        </div>
+                        <div class="linkPlanfix">
+                            <a href="#">
+                                в ПланФикс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adminPanelMainCard">
+                    <div class="adminPanelMainCardTop">
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-switch-2" class="toggle-switch" />
+                            <label for="toggle-switch-2">
+                                <div class="toggle-block"></div>
+                                <span class="toggle-text toggle-text1">ВКЛ</span>
+                                <span class="toggle-text toggle-text2">ВИМК</span>
+                            </label>
+                        </div>
+                        <div class="copy-link">
+                            <img src="img/copy.svg" alt="">
+                            <!-- <span class="link-text"></span> -->
+                        </div>
+                        <div class="copy-message"></div>
+
+
+                    </div>
+
+                    <div class="adminPanelMainContainerInput">
+                        <div class="editTittle">
+                            <button class="editTittleBtn">
+                                <img src="img/editTittle.svg" alt="">
+                            </button>
+                            <h3 class="editTittleText">Назва проекту</h3>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-1">ID ЧАТУ</label>
+                            <input type="text" class="text-input-1" id="text-input-1" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-2">ID ТАБЛИЦІ</label>
+                            <input type="text" class="text-input-1" id="text-input-2" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="save-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainCardBtnFlex">
+                        <div class="adminPanelMainCardBtnPlay">
+                            <button class="adminPanelMainCardPlay">
+                                <img src="img/play.svg" alt="">
+                            </button>
+                            <button class="adminPanelMainCardPause">
+                                <img src="img/pause.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="adminPanelMainCardBtnFlexLink">
+                            <a href="#">
+                                <img src="img/link.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <img src="img/delate.svg" alt="">
+                        </div>
+                        <div class="linkPlanfix">
+                            <a href="#">
+                                в ПланФикс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adminPanelMainCard">
+                    <div class="adminPanelMainCardTop">
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-switch-3" class="toggle-switch" />
+                            <label for="toggle-switch-3">
+                                <div class="toggle-block"></div>
+                                <span class="toggle-text toggle-text1">ВКЛ</span>
+                                <span class="toggle-text toggle-text2">ВИМК</span>
+                            </label>
+                        </div>
+                        <div class="copy-link">
+                            <img src="img/copy.svg" alt="">
+                            <!-- <span class="link-text"></span> -->
+                        </div>
+                        <div class="copy-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainContainerInput">
+                        <div class="editTittle">
+                            <button class="editTittleBtn">
+                                <img src="img/editTittle.svg" alt="">
+                            </button>
+                            <h3 class="editTittleText">Назва проекту</h3>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-3">ID ЧАТУ</label>
+                            <input type="text" class="text-input-1" id="text-input-3" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-4">ID ТАБЛИЦІ</label>
+                            <input type="text" class="text-input-1" id="text-input-4" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="save-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainCardBtnFlex">
+                        <div class="adminPanelMainCardBtnPlay">
+                            <button class="adminPanelMainCardPlay">
+                                <img src="img/play.svg" alt="">
+                            </button>
+                            <button class="adminPanelMainCardPause">
+                                <img src="img/pause.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="adminPanelMainCardBtnFlexLink">
+                            <a href="#">
+                                <img src="img/link.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <img src="img/delate.svg" alt="">
+                        </div>
+                        <div class="linkPlanfix">
+                            <a href="#">
+                                в ПланФикс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adminPanelMainCard">
+                    <div class="adminPanelMainCardTop">
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-switch-4" class="toggle-switch" />
+                            <label for="toggle-switch-4">
+                                <div class="toggle-block"></div>
+                                <span class="toggle-text toggle-text1">ВКЛ</span>
+                                <span class="toggle-text toggle-text2">ВИМК</span>
+                            </label>
+                        </div>
+                        <div class="copy-link">
+                            <img src="img/copy.svg" alt="">
+                            <!-- <span class="link-text"></span> -->
+                        </div>
+                        <div class="copy-message"></div>
+
+
+                    </div>
+
+                    <div class="adminPanelMainContainerInput">
+                        <div class="editTittle">
+                            <button class="editTittleBtn">
+                                <img src="img/editTittle.svg" alt="">
+                            </button>
+                            <h3 class="editTittleText">Назва проекту</h3>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-5">ID ЧАТУ</label>
+                            <input type="text" class="text-input-1" id="text-input-5" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-6">ID ТАБЛИЦІ</label>
+                            <input type="text" class="text-input-1" id="text-input-6" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="save-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainCardBtnFlex">
+                        <div class="adminPanelMainCardBtnPlay">
+                            <button class="adminPanelMainCardPlay">
+                                <img src="img/play.svg" alt="">
+                            </button>
+                            <button class="adminPanelMainCardPause">
+                                <img src="img/pause.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="adminPanelMainCardBtnFlexLink">
+                            <a href="#">
+                                <img src="img/link.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <img src="img/delate.svg" alt="">
+                        </div>
+                        <div class="linkPlanfix">
+                            <a href="#">
+                                в ПланФикс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adminPanelMainCard">
+                    <div class="adminPanelMainCardTop">
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-switch-5" class="toggle-switch" />
+                            <label for="toggle-switch-5">
+                                <div class="toggle-block"></div>
+                                <span class="toggle-text toggle-text1">ВКЛ</span>
+                                <span class="toggle-text toggle-text2">ВИМК</span>
+                            </label>
+                        </div>
+                        <div class="copy-link">
+                            <img src="img/copy.svg" alt="">
+                            <!-- <span class="link-text"></span> -->
+                        </div>
+                        <div class="copy-message"></div>
+
+
+                    </div>
+
+                    <div class="adminPanelMainContainerInput">
+                        <div class="editTittle">
+                            <button class="editTittleBtn">
+                                <img src="img/editTittle.svg" alt="">
+                            </button>
+                            <h3 class="editTittleText">Назва проекту</h3>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-7">ID ЧАТУ</label>
+                            <input type="text" class="text-input-1" id="text-input-7" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-8">ID ТАБЛИЦІ</label>
+                            <input type="text" class="text-input-1" id="text-input-8" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="save-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainCardBtnFlex">
+                        <div class="adminPanelMainCardBtnPlay">
+                            <button class="adminPanelMainCardPlay">
+                                <img src="img/play.svg" alt="">
+                            </button>
+                            <button class="adminPanelMainCardPause">
+                                <img src="img/pause.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="adminPanelMainCardBtnFlexLink">
+                            <a href="#">
+                                <img src="img/link.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <img src="img/delate.svg" alt="">
+                        </div>
+                        <div class="linkPlanfix">
+                            <a href="#">
+                                в ПланФикс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adminPanelMainCard">
+                    <div class="adminPanelMainCardTop">
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-switch-6" class="toggle-switch" />
+                            <label for="toggle-switch-6">
+                                <div class="toggle-block"></div>
+                                <span class="toggle-text toggle-text1">ВКЛ</span>
+                                <span class="toggle-text toggle-text2">ВИМК</span>
+                            </label>
+                        </div>
+                        <div class="copy-link">
+                            <img src="img/copy.svg" alt="">
+                            <!-- <span class="link-text"></span> -->
+                        </div>
+                        <div class="copy-message"></div>
+
+
+                    </div>
+
+                    <div class="adminPanelMainContainerInput">
+                        <div class="editTittle">
+                            <button class="editTittleBtn">
+                                <img src="img/editTittle.svg" alt="">
+                            </button>
+                            <h3 class="editTittleText">Назва проекту</h3>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-9">ID ЧАТУ</label>
+                            <input type="text" class="text-input-1" id="text-input-9" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-10">ID ТАБЛИЦІ</label>
+                            <input type="text" class="text-input-1" id="text-input-10" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="save-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainCardBtnFlex">
+                        <div class="adminPanelMainCardBtnPlay">
+                            <button class="adminPanelMainCardPlay">
+                                <img src="img/play.svg" alt="">
+                            </button>
+                            <button class="adminPanelMainCardPause">
+                                <img src="img/pause.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="adminPanelMainCardBtnFlexLink">
+                            <a href="#">
+                                <img src="img/link.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <img src="img/delate.svg" alt="">
+                        </div>
+                        <div class="linkPlanfix">
+                            <a href="#">
+                                в ПланФикс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adminPanelMainCard">
+                    <div class="adminPanelMainCardTop">
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-switch-7" class="toggle-switch" />
+                            <label for="toggle-switch-7">
+                                <div class="toggle-block"></div>
+                                <span class="toggle-text toggle-text1">ВКЛ</span>
+                                <span class="toggle-text toggle-text2">ВИМК</span>
+                            </label>
+                        </div>
+                        <div class="copy-link">
+                            <img src="img/copy.svg" alt="">
+                            <!-- <span class="link-text"></span> -->
+                        </div>
+                        <div class="copy-message"></div>
+
+
+                    </div>
+
+                    <div class="adminPanelMainContainerInput">
+                        <div class="editTittle">
+                            <button class="editTittleBtn">
+                                <img src="img/editTittle.svg" alt="">
+                            </button>
+                            <h3 class="editTittleText">Назва проекту</h3>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-11">ID ЧАТУ</label>
+                            <input type="text" class="text-input-1" id="text-input-11" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-12">ID ТАБЛИЦІ</label>
+                            <input type="text" class="text-input-1" id="text-input-12" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="save-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainCardBtnFlex">
+                        <div class="adminPanelMainCardBtnPlay">
+                            <button class="adminPanelMainCardPlay">
+                                <img src="img/play.svg" alt="">
+                            </button>
+                            <button class="adminPanelMainCardPause">
+                                <img src="img/pause.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="adminPanelMainCardBtnFlexLink">
+                            <a href="#">
+                                <img src="img/link.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <img src="img/delate.svg" alt="">
+                        </div>
+                        <div class="linkPlanfix">
+                            <a href="#">
+                                в ПланФикс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adminPanelMainCard">
+                    <div class="adminPanelMainCardTop">
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-switch-8" class="toggle-switch" />
+                            <label for="toggle-switch-8">
+                                <div class="toggle-block"></div>
+                                <span class="toggle-text toggle-text1">ВКЛ</span>
+                                <span class="toggle-text toggle-text2">ВИМК</span>
+                            </label>
+                        </div>
+                        <div class="copy-link">
+                            <img src="img/copy.svg" alt="">
+                            <!-- <span class="link-text"></span> -->
+                        </div>
+                        <div class="copy-message"></div>
+
+
+                    </div>
+
+                    <div class="adminPanelMainContainerInput">
+                        <div class="editTittle">
+                            <button class="editTittleBtn">
+                                <img src="img/editTittle.svg" alt="">
+                            </button>
+                            <h3 class="editTittleText">Назва проекту</h3>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-13">ID ЧАТУ</label>
+                            <input type="text" class="text-input-1" id="text-input-13" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="random-text">
+                            <label for="text-input-14">ID ТАБЛИЦІ</label>
+                            <input type="text" class="text-input-1" id="text-input-14" readonly />
+                            <span class="edit-icon"></span>
+                            <span class="edit-save"></span>
+                        </div>
+                        <div class="save-message"></div>
+
+                    </div>
+
+                    <div class="adminPanelMainCardBtnFlex">
+                        <div class="adminPanelMainCardBtnPlay">
+                            <button class="adminPanelMainCardPlay">
+                                <img src="img/play.svg" alt="">
+                            </button>
+                            <button class="adminPanelMainCardPause">
+                                <img src="img/pause.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="adminPanelMainCardBtnFlexLink">
+                            <a href="#">
+                                <img src="img/link.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="delete">
+                            <img src="img/delate.svg" alt="">
+                        </div>
+                        <div class="linkPlanfix">
+                            <a href="#">
+                                в ПланФикс
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="adminPanelPagePagination">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="img/arrow.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        1
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        2
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        3
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        4
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        5
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        6
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        ......
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/arrow.svg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+
+
+
+
+    <div class="modal">
+        <div class="modal-content">
+            <h2>Удаление</h2>
+            <p>Вы уверены, что хотите удалить карточку?</p>
+            <button class="modal-confirm">Удалить</button>
+            <button class="modal-cancel">Отмена</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js" crossorigin="anonymous"></script>
+    <script src="script/adminPanel.js"></script>
+</body>
+
+</html>
