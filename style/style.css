@@ -113,8 +113,16 @@ body {
   justify-content: center;
   align-items: center;
   border: none;
+  transition: all 0.3s;
 }
-
+.formSubmit .wpcf7-submit:hover {
+  transition: all 0.3s;
+  background: #FF9D66;
+}
+.formSubmit .wpcf7-submit:active {
+  transition: all 0.3s;
+  background:#FF7D33;
+}
 .formSubmit {
   display: flex;
   justify-content: flex-end;
@@ -242,7 +250,12 @@ body {
   color: #2E2E2E;
   margin-bottom: 4px;
 }
-
+.nameField:hover {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(18, 17, 39, 0.56) !important;
+  border-radius: 8px !important;
+  cursor: pointer;
+}
 .random-text input {
   box-sizing: border-box;
   padding: 6px 12px 5px;
@@ -303,6 +316,7 @@ body {
   padding: 10px;
   text-align: center;
   transition: opacity 0.3s;
+  z-index: 110;
 }
 
 .adminPanelMainContainerInput {
@@ -328,8 +342,16 @@ body {
   height: 28px;
   background: #FFAF3F;
   border-radius: 6px;
+  transition: all 0.3s;
 }
-
+.adminPanelMainCardBtnPlay button:hover {
+  transition: all 0.3s;
+  background: #FF9D66;
+}
+.adminPanelMainCardBtnPlay button:active {
+  transition: all 0.3s;
+  background: #FF7D33;
+}
 .adminPanelMainCardPlay {
   position: relative;
   z-index: 101;
@@ -349,6 +371,15 @@ body {
   background: #FFAF3F;
   border-radius: 6px;
   margin-right: 8px;
+  transition: all 0.3s;
+}
+.adminPanelMainCardBtnFlexLink:hover {
+  transition: all 0.3s;
+  background: #FF9D66;
+}
+.adminPanelMainCardBtnFlexLink:active {
+  transition: all 0.3s;
+  background: #FF7D33;
 }
 
 .delete {
@@ -361,8 +392,37 @@ body {
   border-radius: 6px;
   cursor: pointer;
   margin-right: 12px;
+  transition: all 0.3s;
 }
 
+.delete:hover {
+  transition: all 0.3s;
+  background: rgba(0, 0, 0, 0.04);
+}
+.delete:active {
+  transition: all 0.3s;
+  background: rgba(0, 0, 0, 0.04);
+  border: 2px solid rgba(0, 0, 0, 0.12);
+}
+.linkPlanfix {
+  transition: all 0.3s;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  border: 2px solid transparent;
+}
+.linkPlanfix:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+.linkPlanfix:active {
+  background: rgba(0, 0, 0, 0.04);
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  transition: all 0.3s;
+}
 .linkPlanfix a {
   display: flex;
   align-items: center;
@@ -372,6 +432,7 @@ body {
   font-size: 12px;
   line-height: 24px;
   color: #000000;
+  white-space: nowrap;
 }
 
 .linkPlanfix a::after {
@@ -421,6 +482,7 @@ body {
   padding: 10px;
   text-align: center;
   transition: opacity 0.3s;
+  z-index: 110;
 }
 
 .toggle {
@@ -527,8 +589,16 @@ body {
   background: #FFAF3F;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.3s;
 }
-
+.copy-link:hover {
+  transition: all 0.3s;
+  background: #FF9D66;
+}
+.copy-link:active {
+  transition: all 0.3s;
+  background: #FF7D33;
+}
 .link-text {
   user-select: none;
 }
@@ -544,6 +614,7 @@ body {
   padding: 10px;
   text-align: center;
   transition: opacity 0.3s;
+  z-index: 110;
 }
 
 .random-text {
@@ -626,6 +697,16 @@ body {
   justify-content: center;
   align-items: center;
   margin-right: 8px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+    transition: all 0.3s;
+  cursor: pointer;
+}
+.adminPanelPagePagination ul li:hover {
+  transition: all 0.3s;
+  background: rgba(0, 0, 0, 0.04);
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
 }
 .adminPanelPagePagination ul li:nth-of-type(1) {
   transform: rotate(180deg);
@@ -639,4 +720,17 @@ body {
   line-height: 24px;
   color: #000000;
   text-decoration: none;
+}
+.invalid-input {
+  border-color: red;
+  color: red;
+}
+
+.invalid-input::placeholder {
+  color: red;
+}
+.text-input-1:hover {
+  border: 1px solid rgba(18, 17, 39, 0.56) !important;
+  border-radius: 4px !important;
+  cursor: pointer;
 }

@@ -204,6 +204,6 @@ function showSavedMessage(element) {
 }
 
 function saveTitle(newTitle) {
-  // Здесь можно добавить логику сохранения текста
   console.log('Сохраненный текст:', newTitle);
 }
+
